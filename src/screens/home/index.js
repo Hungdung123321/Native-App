@@ -1,33 +1,19 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import {
-  Text,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import Header from '../../components/Header';
-import { clickUpgradeHandle } from '../../redux/actions';
-import styles from './styles';
-
-const HomeScreen = ({ route, navigation }) => {
-  const dispatch = useDispatch();
-  const clickSelector = useSelector((state) => state._click);
-
-  const clickAdd = () => {
-    dispatch(clickUpgradeHandle());
-  };
-
+import { View, Text } from 'react-native'
+import React from 'react'
+import styles from './styles'
+import HomeBar from '../../components/HomeTopBar'
+import { FONTS } from '../../assets/fonts'
+import CardExam from '../../components/CardExam'
+const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Header title={'HomeScreen'} />
-      <View style={styles.body}>
-        <TouchableOpacity onPress={clickAdd}>
-          <Text style={styles.text}>{clickSelector}</Text>
-        </TouchableOpacity>
-      </View>
+      <HomeBar />
+      <View style={styles.padding}></View>
+      <Text style={FONTS.FONT_TITLE}>Nổi Bật</Text>
+      <CardExam />
     </View>
-  );
-};
+  )
+}
 
-export default HomeScreen;
+export default HomeScreen
+
